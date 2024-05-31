@@ -1,1 +1,0 @@
-# CMP-image-pick-n-crop
