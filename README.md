@@ -2,7 +2,8 @@
 
 A CMPImagePickNCrop is image selection & cropping library for Compose Multiplatform for Android and iOS.
 
-![Hero-image - CMP-image-pick-crop 3](https://github.com/ChainTechNetwork/CMP-image-pick-n-crop/assets/143475887/2d9b3fcd-4b98-407a-808b-b636a6b636ee)
+![CMP-image-pick-n-crop-org](https://github.com/user-attachments/assets/17eddc44-ae1f-4692-9989-c27ebe724f85)
+
 
 ## Installation
 
