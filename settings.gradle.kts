@@ -1,4 +1,4 @@
-rootProject.name = "CMPImagePickNCropDemo"
+rootProject.name = "CMPImagePickNCrop"
 include(":composeApp")
 
 pluginManagement {
@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
     }
 }
+include(":cmpimagepickncrop")

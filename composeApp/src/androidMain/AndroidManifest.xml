@@ -9,12 +9,12 @@
         android:maxSdkVersion="32" />
 
     <application
-        android:name="network.chaintech.cmpimagepickncropdemo.AndroidApp"
+        android:name="network.chaintech.cmpimagepickncrop.AndroidApp"
         android:icon="@android:drawable/ic_menu_compass"
-        android:label="CMPCropDemo"
+        android:label="CMPCrop"
         android:theme="@android:style/Theme.Material.NoActionBar">
         <activity
-            android:name="network.chaintech.cmpimagepickncropdemo.AppActivity"
+            android:name="network.chaintech.cmpimagepickncrop.AppActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
             android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustPan"

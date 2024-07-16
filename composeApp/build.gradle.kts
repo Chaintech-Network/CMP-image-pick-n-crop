@@ -43,6 +43,14 @@ kotlin {
         }
     }
 
+    jvm {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+
     sourceSets {
         all {
             languageSettings {
@@ -55,7 +63,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.cmp.image.pick.n.crop)
+            implementation(project(":cmpimagepickncrop"))
         }
 
         commonTest.dependencies {
@@ -72,18 +80,21 @@ kotlin {
         iosMain.dependencies {
         }
 
+        jvmMain.dependencies {
+            implementation(compose.desktop.currentOs)
+        }
     }
 }
 
 android {
-    namespace = "network.chaintech.cmpcropdemo"
+    namespace = "network.chaintech.cmpcrop"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 24
         targetSdk = 34
 
-        applicationId = "network.chaintech.cmpcropdemo.androidApp"
+        applicationId = "network.chaintech.cmpcrop.androidApp"
         versionCode = 1
         versionName = "1.0.0"
 
