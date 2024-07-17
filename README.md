@@ -142,8 +142,11 @@ Button(
 }
 ```
 
-## Screenshot
+## Screenshot - Android and iOS
 ![1_9Ea4YOYyvObPhPldxwKngQ](https://github.com/ChainTechNetwork/CMP-image-pick-n-crop/assets/143475887/4c681c09-1ae3-4075-b225-554f5931f49e)
+
+## Screenshot - Desktop
+![CMP-image-pick-n-crop-org](https://github.com/user-attachments/assets/441c948c-f0bc-47d6-937e-3b1a49429ea5)
 
 
 - For Demo [Checkout This Class](https://github.com/ChainTechNetwork/CMP-image-pick-n-crop/blob/main/composeApp/src/commonMain/kotlin/network/chaintech/cmpimagepickncropdemo/App.kt)
