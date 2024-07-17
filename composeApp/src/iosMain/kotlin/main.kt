@@ -1,5 +1,5 @@
 import androidx.compose.ui.window.ComposeUIViewController
-import network.chaintech.cmpimagepickncrop.App
+import network.chaintech.imagepickncrop.App
 import platform.UIKit.UIViewController
 
 fun MainViewController(): UIViewController = ComposeUIViewController { App() }
