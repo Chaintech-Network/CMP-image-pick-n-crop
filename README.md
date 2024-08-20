@@ -11,7 +11,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```
 commonMain.dependencies {
-    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.1")
+    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.2")
 }
 ```
 
@@ -153,4 +153,4 @@ Button(
 
 - [Medium Article](https://medium.com/mobile-innovation-network/cmpimagepickncrop-compose-multiplatform-6963559d6f73) for detailed explaination.
 
-- Connect us on [LinkedIn](https://www.linkedin.com/showcase/mobile-innovation-network)
+- Connect us on [LinkedIn](https://www.linkedin.com/showcase/mobile-innovation-network) 
