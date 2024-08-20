@@ -63,7 +63,7 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation("network.chaintech:cmp-image-pick-n-crop:1.0.1")
+            implementation(libs.cmp.image.pick.n.crop)
         }
 
         commonTest.dependencies {

@@ -15,4 +15,3 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include(":cmpimagepickncrop")
