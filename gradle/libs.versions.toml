@@ -1,8 +1,8 @@
 [versions]
 
-cmpImagePickNCrop = "1.0.2"
+cmpImagePickNCrop = "1.0.3"
 kotlin = "2.0.0"
-compose = "1.6.11"
+compose = "1.7.0-alpha03"
 agp = "8.2.2"
 androidx-activityCompose = "1.9.1"
 androidx-uiTest = "1.6.8"
