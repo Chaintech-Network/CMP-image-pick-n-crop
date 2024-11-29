@@ -20,8 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import network.chaintech.cmpimagepickncrop.CMPImagePickNCropDialog
-import network.chaintech.imagepickncrop.theme.AppTheme
 import network.chaintech.cmpimagepickncrop.imagecropper.rememberImageCropper
+import network.chaintech.imagepickncrop.theme.AppTheme
 
 @Composable
 internal fun App() = AppTheme {
@@ -36,6 +36,7 @@ internal fun App() = AppTheme {
         CMPImagePickNCropDialog(
             imageCropper = imageCropper,
             openImagePicker = openImagePicker,
+            autoZoom = true,
             imagePickerDialogHandler = {
                 openImagePicker = it
             },

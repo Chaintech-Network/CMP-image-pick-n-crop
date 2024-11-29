@@ -20,7 +20,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 commonMain.dependencies {
-    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.4")
+    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.7")
 }
 ```
 
@@ -52,6 +52,11 @@ fun CMPImagePickNCropDialog(
     imageCropper: ImageCropper = rememberImageCropper(),
     openImagePicker: Boolean,
     cropEnable: Boolean = true,
+    showCameraOption: Boolean = true,
+    showGalleryOption: Boolean = true,
+    autoZoom: Boolean = true,
+    shapes: List<ImageCropShape>? = DefaultCropShapes,
+    aspects: List<ImageAspectRatio> = DefaultImageCropperAspectRatios,
     imagePickerDialogHandler: (Boolean) -> Unit,
     selectedImageCallback: (ImageBitmap) -> Unit
 )
@@ -60,8 +65,13 @@ fun CMPImagePickNCropDialog(
 - `imageCropper`: Manages the image cropping logic (default is rememberImageCropper()).
 - `openImagePicker`: Controls whether the image picker dialog is open.
 - `cropEnable`: Enables or disables the image cropping feature (default is true).
-- `imagePickerDialogHandler`: Handles the opening and closing of the image picker dialog.
-- `selectedImageCallback`: Called when an image is selected and cropped, providing the cropped image.
+- `showCameraOption`: Displays the option to pick an image from the camera.
+- `showGalleryOption`: Displays the option to pick an image from the gallery.
+- `autoZoom`: Automatically zooms to fit the cropped region within view bounds.
+- `shapes`: Specifies the list of cropping shapes (default is DefaultCropShapes).
+- `aspects`: Defines the aspect ratios available for cropping (default is DefaultImageCropperAspectRatios).
+- `imagePickerDialogHandler`: Handles the visibility of the image picker dialog.
+- `selectedImageCallback`: Callback invoked with the cropped image as an ImageBitmap.
 
 ## Example
 
@@ -79,6 +89,7 @@ internal fun App() = AppTheme {
         CMPImagePickNCropDialog(
             imageCropper = imageCropper,
             openImagePicker = openImagePicker,
+            autoZoom = true,
             imagePickerDialogHandler = {
                 openImagePicker = it
             },
