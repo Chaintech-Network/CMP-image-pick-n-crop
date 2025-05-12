@@ -20,7 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import network.chaintech.cmpimagepickncrop.CMPImagePickNCropDialog
+import network.chaintech.cmpimagepickncrop.imagecropper.ImageAspectRatio
 import network.chaintech.cmpimagepickncrop.imagecropper.rememberImageCropper
+import network.chaintech.cmpimagepickncrop.utils.ImagePickerDialogStyle
 import network.chaintech.imagepickncrop.theme.AppTheme
 
 @Composable
@@ -36,6 +38,17 @@ internal fun App() = AppTheme {
         CMPImagePickNCropDialog(
             imageCropper = imageCropper,
             openImagePicker = openImagePicker,
+            defaultAspectRatio = ImageAspectRatio(16, 9),
+            imagePickerDialogStyle = ImagePickerDialogStyle(
+                title = "Choose from option",
+                txtCamera = "From Camera",
+                txtGallery = "From Gallery",
+                txtCameraColor = Color.DarkGray,
+                txtGalleryColor = Color.DarkGray,
+                cameraIconTint = Color.DarkGray,
+                galleryIconTint = Color.DarkGray,
+                backgroundColor = Color.White
+            ),
             autoZoom = true,
             imagePickerDialogHandler = {
                 openImagePicker = it
