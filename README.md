@@ -20,7 +20,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 commonMain.dependencies {
-    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.9")
+    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.8")
 }
 ```
 
@@ -59,8 +59,6 @@ fun CMPImagePickNCropDialog(
     enabledFlipOption: Boolean = true,
     shapes: List<ImageCropShape>? = DefaultCropShapes,
     aspects: List<ImageAspectRatio>? = DefaultImageCropperAspectRatios,
-    imagePickerDialogStyle: ImagePickerDialogStyle = ImagePickerDialogStyle(),
-    defaultAspectRatio: ImageAspectRatio? = null,
     imagePickerDialogHandler: (Boolean) -> Unit,
     selectedImageCallback: (ImageBitmap) -> Unit
 )
@@ -76,8 +74,6 @@ fun CMPImagePickNCropDialog(
 - `enabledFlipOption`: Show or hide flip options.
 - `shapes`: Specifies the list of cropping shapes (default is DefaultCropShapes).
 - `aspects`: Defines the aspect ratios available for cropping (default is DefaultImageCropperAspectRatios).
-- `imagePickerDialogStyle`: Styling options for the image picker dialog (default is ImagePickerDialogStyle()).
-- `defaultAspectRatio`: Aspect ratio to be preselected when cropping starts (default is null).
 - `imagePickerDialogHandler`: Handles the visibility of the image picker dialog.
 - `selectedImageCallback`: Callback invoked with the cropped image as an ImageBitmap.
 
@@ -97,17 +93,6 @@ internal fun App() = AppTheme {
         CMPImagePickNCropDialog(
             imageCropper = imageCropper,
             openImagePicker = openImagePicker,
-            defaultAspectRatio = ImageAspectRatio(16, 9),
-            imagePickerDialogStyle = ImagePickerDialogStyle(
-                title = "Choose from option",
-                txtCamera = "From Camera",
-                txtGallery = "From Gallery",
-                txtCameraColor = Color.DarkGray,
-                txtGalleryColor = Color.DarkGray,
-                cameraIconTint = Color.DarkGray,
-                galleryIconTint = Color.DarkGray,
-                backgroundColor = Color.White
-            ),
             autoZoom = true,
             imagePickerDialogHandler = {
                 openImagePicker = it
