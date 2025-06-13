@@ -64,7 +64,8 @@ kotlin {
             implementation(compose.materialIconsExtended)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.cmp.image.pick.n.crop)
+//            implementation(libs.cmp.image.pick.n.crop)
+            implementation(project(":cmpimagepickncrop"))
         }
 
         commonTest.dependencies {

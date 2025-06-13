@@ -1,5 +1,6 @@
 rootProject.name = "CMPImagePickNCrop"
 include(":composeApp")
+include(":cmpimagepickncrop")
 
 pluginManagement {
     repositories {

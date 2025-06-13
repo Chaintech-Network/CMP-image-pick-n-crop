@@ -20,7 +20,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 commonMain.dependencies {
-    implementation("network.chaintech:cmp-image-pick-n-crop:1.0.9")
+    implementation("network.chaintech:cmp-image-pick-n-crop:1.1.0")
 }
 ```
 
@@ -180,6 +180,22 @@ Button(
     Text(text = "CropImage")
 }
 ```
+<br>
+
+- ByteArray <br><br>
+  If you want a bytearray then you can convert the ImageBitmap received in the callback using the ImageBitmap.toByteArray()
+
+```kotlin
+// function to convert ImageBitmap to ByteArray
+fun ImageBitmap.toByteArray(
+    format: ImageFileFormat = ImageFileFormat.PNG,
+    quality: Float = 1.0f
+): ByteArray?
+
+// Usage
+val imageBitmap = .. // your selected imageBitmap
+val byteArray = imageBitmap.toByteArray() // converted byteArray
+```
 
 ## Screenshot - Android and iOS
 ![1_9Ea4YOYyvObPhPldxwKngQ](https://github.com/ChainTechNetwork/CMP-image-pick-n-crop/assets/143475887/4c681c09-1ae3-4075-b225-554f5931f49e)
@@ -191,7 +207,7 @@ Button(
 - For Demo [Checkout This Class](https://github.com/ChainTechNetwork/CMP-image-pick-n-crop/blob/main/composeApp/src/commonMain/kotlin/network/chaintech/cmpimagepickncropdemo/App.kt)
 
 - [Medium Article](https://medium.com/mobile-innovation-network/cmpimagepickncrop-compose-multiplatform-6963559d6f73) for detailed explaination.
-<br><br>
+  <br><br>
 
 ## 🌐 Stay Connected with Us
 Stay connected and keep up with our latest innovations! 💼 Let's innovate together!<br><br>
