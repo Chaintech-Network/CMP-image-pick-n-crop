@@ -20,7 +20,7 @@ Add the dependency to your `build.gradle.kts` file:
 
 ```kotlin
 commonMain.dependencies {
-    implementation("network.chaintech:cmp-image-pick-n-crop:1.1.0")
+    implementation("network.chaintech:cmp-image-pick-n-crop:1.1.1")
 }
 ```
 
@@ -62,7 +62,8 @@ fun CMPImagePickNCropDialog(
     imagePickerDialogStyle: ImagePickerDialogStyle = ImagePickerDialogStyle(),
     defaultAspectRatio: ImageAspectRatio? = null,
     imagePickerDialogHandler: (Boolean) -> Unit,
-    selectedImageCallback: (ImageBitmap) -> Unit
+    selectedImageCallback: (ImageBitmap) -> Unit,
+    selectedImageFileCallback: (SharedImage) -> Unit
 )
 ```
 
@@ -80,6 +81,7 @@ fun CMPImagePickNCropDialog(
 - `defaultAspectRatio`: Aspect ratio to be preselected when cropping starts (default is null).
 - `imagePickerDialogHandler`: Handles the visibility of the image picker dialog.
 - `selectedImageCallback`: Callback invoked with the cropped image as an ImageBitmap.
+- `selectedImageFileCallback`: Callback invoked with the shared image object used for image compress.
 
 ## Example
 
@@ -114,7 +116,17 @@ internal fun App() = AppTheme {
             },
             selectedImageCallback = {
                 selectedImage = it
-            })
+            },
+            selectedImageFileCallback = { sharedImage ->
+              scope.launch {
+                val compressedFile = compressImage(
+                  sharedImage = sharedImage,
+                  targetFileSize = 200 * 1024 // In KB
+                )
+                println("Compressed File Path : $compressedFile")
+              }
+            }
+        )
 
         Column(
             modifier = Modifier
@@ -195,6 +207,23 @@ fun ImageBitmap.toByteArray(
 // Usage
 val imageBitmap = .. // your selected imageBitmap
 val byteArray = imageBitmap.toByteArray() // converted byteArray
+```
+
+<br>
+
+- Image Compress <br><br>
+  If you want to compress image then you can use the selectedImageFileCallback
+
+```kotlin
+selectedImageFileCallback = { sharedImage ->
+  scope.launch {
+    val compressedFile = compressImage(
+      sharedImage = sharedImage,
+      targetFileSize = 200 * 1024 // In KB
+    )
+    println("Compressed File Path : $compressedFile")
+  }
+}
 ```
 
 ## Screenshot - Android and iOS

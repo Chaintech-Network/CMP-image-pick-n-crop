@@ -14,12 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import kotlinx.coroutines.launch
 import network.chaintech.cmpimagepickncrop.CMPImagePickNCropDialog
+import network.chaintech.cmpimagepickncrop.imagecompress.compressImage
 import network.chaintech.cmpimagepickncrop.imagecropper.ImageAspectRatio
 import network.chaintech.cmpimagepickncrop.imagecropper.rememberImageCropper
 import network.chaintech.cmpimagepickncrop.utils.ImagePickerDialogStyle
@@ -31,6 +34,7 @@ internal fun App() = AppTheme {
         modifier = Modifier.fillMaxSize(),
         color = Color.White
     ) {
+        val scope = rememberCoroutineScope()
         val imageCropper = rememberImageCropper()
         var selectedImage by remember { mutableStateOf<ImageBitmap?>(null) }
         var openImagePicker by remember { mutableStateOf(value = false) }
@@ -49,13 +53,24 @@ internal fun App() = AppTheme {
                 galleryIconTint = Color.DarkGray,
                 backgroundColor = Color.White
             ),
+            cropEnable = false,
             autoZoom = true,
             imagePickerDialogHandler = {
                 openImagePicker = it
             },
             selectedImageCallback = {
                 selectedImage = it
-            })
+            },
+            selectedImageFileCallback = { sharedImage ->
+                scope.launch {
+                    val compressedFile = compressImage(
+                        sharedImage = sharedImage,
+                        targetFileSize = 200 * 1024 // In KB
+                    )
+                    println("Compressed File Path : $compressedFile")
+                }
+            }
+        )
 
         Column(
             modifier = Modifier
