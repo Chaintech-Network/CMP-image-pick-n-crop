@@ -1,6 +1,7 @@
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import com.android.build.api.dsl.ManagedVirtualDevice
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
@@ -43,12 +44,12 @@ kotlin {
         }
     }
 
-    jvm {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "17"
-            }
-        }
+    jvm()
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        binaries.executable()
     }
 
     sourceSets {
@@ -64,8 +65,7 @@ kotlin {
             implementation(compose.materialIconsExtended)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-//            implementation(libs.cmp.image.pick.n.crop)
-            implementation(project(":cmpimagepickncrop"))
+            implementation(libs.cmp.image.pick.n.crop)
         }
 
         commonTest.dependencies {

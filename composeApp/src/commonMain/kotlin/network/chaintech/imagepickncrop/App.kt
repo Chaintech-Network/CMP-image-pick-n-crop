@@ -65,7 +65,8 @@ internal fun App() = AppTheme {
                 scope.launch {
                     val compressedFile = compressImage(
                         sharedImage = sharedImage,
-                        targetFileSize = 200 * 1024 // In KB
+                        compressionQuality = 0.5f,
+                        targetFileSize = 200 * 1024 // In KB,
                     )
                     println("Compressed File Path : $compressedFile")
                 }

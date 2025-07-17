@@ -1,14 +1,17 @@
 [versions]
 
 accompanistPermissions = "0.36.0"
-cmpImagePickNCrop = "1.1.1"
+cmpImagePickNCrop = "1.1.2"
+javacvPlatform = "1.5.8"
 javase = "3.5.1"
 jna = "5.14.0"
-kotlin = "2.1.20"
-compose = "1.8.0"
+kotlin = "2.2.0"
+compose = "1.8.2"
 agp = "8.9.3"
 androidx-activityCompose = "1.10.1"
 androidx-uiTest = "1.8.3"
+mavenPublishVersion = "0.31.0"
+opencvPlatform = "4.6.0-1.5.8"
 
 [libraries]
 
@@ -17,8 +20,10 @@ androidx-activityCompose = { module = "androidx.activity:activity-compose", vers
 androidx-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
 androidx-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-uiTest" }
 cmp-image-pick-n-crop = { module = "network.chaintech:cmp-image-pick-n-crop", version.ref = "cmpImagePickNCrop" }
+javacv-platform = { module = "org.bytedeco:javacv-platform", version.ref = "javacvPlatform" }
 javase = { module = "com.google.zxing:javase", version.ref = "javase" }
 jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
+opencv-platform = { module = "org.bytedeco:opencv-platform", version.ref = "opencvPlatform" }
 
 [plugins]
 
@@ -27,4 +32,4 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublishVersion" }
